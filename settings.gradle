@@ -1,3 +1,4 @@
 rootProject.name='GitHub Browser'
 include ':app'
 include ':githubapi'
+include ':repository'
