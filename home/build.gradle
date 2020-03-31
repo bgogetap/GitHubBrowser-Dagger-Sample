@@ -30,6 +30,8 @@ android {
 }
 
 dependencies {
+    implementation project(":appdeps")
+    implementation project(":di")
     implementation project(":repository")
 
     implementation deps.androidx.constraintlayout
