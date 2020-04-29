@@ -30,7 +30,10 @@ dependencies {
 
     implementation project(":appdeps")
     implementation project(":githubapi")
+    implementation project(":home")
     implementation project(":repository")
+
+    implementation deps.androidx.fragment
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'

@@ -31,6 +31,7 @@ ext.versions = [
         "archTesting"     : "2.1.0",
         "constraintlayout": "1.1.3",
         "dagger"          : "2.26",
+        "fragment"        : "1.2.4",
         "lifecycle"       : "2.2.0",
         "recyclerview"    : "1.1.0",
         "truth"           : "1.0.1"
@@ -40,6 +41,7 @@ ext.deps = [
         "androidx": [
                 "archtesting"     : "androidx.arch.core:core-testing:${versions.archTesting}",
                 "constraintlayout": "androidx.constraintlayout:constraintlayout:${versions.constraintlayout}",
+                "fragment"        : "androidx.fragment:fragment-ktx:${versions.fragment}",
                 "livedata"        : "androidx.lifecycle:lifecycle-livedata-ktx:${versions.lifecycle}",
                 "recyclerview"    : "androidx.recyclerview:recyclerview:${versions.recyclerview}",
                 "viewmodel"       : "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycle}"
