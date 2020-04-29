@@ -1,4 +1,4 @@
-package com.sample.githubbrowser.application
+package com.sample.githubbrowser.appcomponent
 
 import android.content.Context
 import com.sample.githubbrowser.appdeps.ApplicationDeps
