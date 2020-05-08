@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="creation_date_label">Created</string>
+    <string name="updated_date_label">Updated</string>
+    <string name="contributors_label">Contributors</string>
+</resources>
