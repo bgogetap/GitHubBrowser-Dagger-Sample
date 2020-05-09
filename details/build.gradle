@@ -26,10 +26,14 @@ android {
     viewBinding {
         enabled true
     }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     implementation project(":appdeps")
     implementation project(":di")
@@ -39,6 +43,8 @@ dependencies {
     implementation deps.androidx.livedata
     implementation deps.androidx.recyclerview
     implementation deps.androidx.viewmodel
+
+    implementation deps.coil
 
     implementation deps.dagger.core
     kapt deps.dagger.compiler
