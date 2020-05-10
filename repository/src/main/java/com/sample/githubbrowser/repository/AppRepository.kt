@@ -10,7 +10,7 @@ class AppRepository @Inject constructor(
     private val gitHubApi: GitHubApi
 ) {
 
-    fun getTopRepos(): List<RepoApiModel> {
+    suspend fun getTopRepos(): List<RepoApiModel> {
         return gitHubApi.getTopRepositories()
     }
 }

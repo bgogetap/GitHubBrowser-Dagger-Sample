@@ -29,6 +29,8 @@ dependencies {
 
     api project(":githubapi")
 
+    implementation deps.coroutines.android
+
     implementation deps.dagger.core
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -36,6 +38,7 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.2.0'
 
     testImplementation 'junit:junit:4.12'
+    testImplementation project(":testing:app")
     testImplementation deps.truth
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

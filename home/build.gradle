@@ -48,6 +48,8 @@ dependencies {
     implementation deps.androidx.recyclerview
     implementation deps.androidx.viewmodel
 
+    implementation deps.coroutines.android
+
     implementation deps.dagger.core
     kapt deps.dagger.compiler
 
@@ -56,6 +58,8 @@ dependencies {
 
     testImplementation 'junit:junit:4.12'
     testImplementation deps.androidx.archtesting
+    testImplementation deps.coroutines.test
+    testImplementation project(":testing:app")
     testImplementation deps.truth
 
     androidTestImplementation deps.androidx.fragmenttesting

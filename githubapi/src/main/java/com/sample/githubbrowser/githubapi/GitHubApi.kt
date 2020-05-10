@@ -7,12 +7,12 @@ import javax.inject.Singleton
 
 interface GitHubApi {
 
-    fun getTopRepositories(): List<RepoApiModel>
+    suspend fun getTopRepositories(): List<RepoApiModel>
 }
 
 @Singleton
 class MockGitHubApi @Inject constructor(): GitHubApi {
-    override fun getTopRepositories(): List<RepoApiModel> {
+    override suspend fun getTopRepositories(): List<RepoApiModel> {
         return listOf(
             RepoApiModel(
                 id = 1L,
