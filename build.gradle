@@ -34,7 +34,9 @@ ext.versions = [
         "dagger"          : "2.26",
         "fragment"        : "1.2.4",
         "lifecycle"       : "2.2.0",
+        "moshi"           : "1.9.2",
         "recyclerview"    : "1.1.0",
+        "retrofit"        : "2.8.1",
         "truth"           : "1.0.1"
 ]
 
@@ -56,8 +58,27 @@ ext.deps = [
                 "core"    : "com.google.dagger:dagger:${versions.dagger}",
                 "compiler": "com.google.dagger:dagger-compiler:${versions.dagger}"
         ],
+        "moshi"     : [
+                "core"  : "com.squareup.moshi:moshi:${versions.moshi}",
+                "kotlin": "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}"
+        ],
+        "retrofit"  : [
+                "core" : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+                "moshi": "com.squareup.retrofit2:converter-moshi:${versions.retrofit}"
+        ],
         "truth"     : "com.google.truth:truth:${versions.truth}"
 ]
+
+subprojects {
+    plugins.withType(com.android.build.gradle.BasePlugin).whenPluginAdded {
+        android {
+            compileOptions {
+                sourceCompatibility = JavaVersion.VERSION_1_8
+                targetCompatibility = JavaVersion.VERSION_1_8
+            }
+        }
+    }
+}
 
 task clean(type: Delete) {
     delete rootProject.buildDir
