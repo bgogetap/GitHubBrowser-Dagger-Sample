@@ -51,7 +51,7 @@ class HomeViewModelTest {
             repos = listOf(
                 RepoItem(
                     name = fakeRepoApiModel.name,
-                    description = fakeRepoApiModel.description,
+                    description = fakeRepoApiModel.description ?: "",
                     starsCount = fakeRepoApiModel.stargazersCount,
                     forkCount = fakeRepoApiModel.forksCount
                 )

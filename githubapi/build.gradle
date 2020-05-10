@@ -32,6 +32,7 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.2.0'
 
     implementation deps.dagger.core
+    kapt deps.dagger.compiler
 
     api deps.retrofit.core
     implementation deps.retrofit.moshi
