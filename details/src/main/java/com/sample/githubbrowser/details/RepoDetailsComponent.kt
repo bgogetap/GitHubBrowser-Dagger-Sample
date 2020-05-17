@@ -9,7 +9,7 @@ import dagger.Component
 import javax.inject.Named
 
 @ScreenScope
-@Component(dependencies = [ApplicationDeps::class])
+@Component(dependencies = [ApplicationDeps::class], modules = [RepoDetailsModule::class])
 interface RepoDetailsComponent {
 
     fun inject(repoDetailsFragment: RepoDetailsFragment)

@@ -1,11 +1,15 @@
 package com.sample.githubbrowser.details
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.sample.githubbrowser.details.databinding.ScreenDetailsBinding
+import com.sample.githubbrowser.di.viewmodel.AppViewModelFactory
+import javax.inject.Inject
 
 class RepoDetailsFragment : Fragment() {
 
@@ -17,6 +21,18 @@ class RepoDetailsFragment : Fragment() {
             }
             return RepoDetailsFragment().apply { arguments = args }
         }
+    }
+
+    @Inject
+    lateinit var viewModelFactory: AppViewModelFactory
+
+    private val viewModel by lazy {
+        ViewModelProvider(this, viewModelFactory)[RepoDetailsViewModel::class.java]
+    }
+
+    override fun onAttach(context: Context) {
+        inject()
+        super.onAttach(context)
     }
 
     override fun onCreateView(
