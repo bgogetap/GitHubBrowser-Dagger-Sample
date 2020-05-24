@@ -19,7 +19,7 @@ class HomeFragmentTest {
     @Before
     fun setUp() {
         val gitHubApi = TestApplication.component.gitHubApi()
-        gitHubApi.repos = listOf(
+        gitHubApi.topRepos = listOf(
             RepoApiModel(
                 id = 1L,
                 name = "Home Fragment",
