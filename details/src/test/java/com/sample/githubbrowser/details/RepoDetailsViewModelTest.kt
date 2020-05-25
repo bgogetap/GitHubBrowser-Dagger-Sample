@@ -35,7 +35,7 @@ class RepoDetailsViewModelTest {
         updatedDate = "1/1/2020"
     )
 
-    val fakeContributorsList = listOf(
+    private val fakeContributorsList = listOf(
         ContributorApiModel(id = 1L, login = "contributor", avatarUrl = "avatar.png")
     )
 
