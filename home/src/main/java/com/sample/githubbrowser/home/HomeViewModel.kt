@@ -6,13 +6,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sample.githubbrowser.di.scope.ScreenScope
 import com.sample.githubbrowser.home.list.RepoItem
+import com.sample.githubbrowser.navigation.DetailsScreen
+import com.sample.githubbrowser.navigation.ScreenNavigator
 import com.sample.githubbrowser.repository.AppRepository
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @ScreenScope
 class HomeViewModel @Inject constructor(
-    private val appRepository: AppRepository
+    private val appRepository: AppRepository,
+    private val screenNavigator: ScreenNavigator
 ) : ViewModel() {
 
     private val _viewState = MutableLiveData<HomeViewState>(HomeViewStateLoading)
@@ -24,6 +27,7 @@ class HomeViewModel @Inject constructor(
             _viewState.value = HomeViewStateLoaded(
                 repos = topRepos.map {
                     RepoItem(
+                        ownerName = it.owner.login,
                         name = it.name,
                         description = it.description ?: "",
                         starsCount = it.stargazersCount,
@@ -32,5 +36,9 @@ class HomeViewModel @Inject constructor(
                 }
             )
         }
+    }
+
+    fun onRepoSelected(repoOwner: String, repoName: String) {
+        screenNavigator.goToScreen(DetailsScreen(repoOwner, repoName))
     }
 }

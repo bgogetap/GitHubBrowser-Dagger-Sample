@@ -8,7 +8,9 @@ import javax.inject.Singleton
 @Singleton
 class FakeScreenNavigator @Inject constructor() : ScreenNavigator {
 
-    override fun goToScreen(screen: Screen) {
+    val openedScreens = mutableListOf<Screen>()
 
+    override fun goToScreen(screen: Screen) {
+        openedScreens.add(screen)
     }
 }

@@ -4,10 +4,15 @@ import com.sample.githubbrowser.appdeps.ApplicationDeps
 import com.sample.githubbrowser.appdeps.applicationDeps
 import com.sample.githubbrowser.di.component.getComponent
 import com.sample.githubbrowser.di.scope.ScreenScope
+import com.sample.githubbrowser.navigation.NavigationDeps
+import com.sample.githubbrowser.navigation.navigationDeps
 import dagger.Component
 
 @ScreenScope
-@Component(dependencies = [ApplicationDeps::class], modules = [HomeModule::class])
+@Component(
+    dependencies = [ApplicationDeps::class, NavigationDeps::class],
+    modules = [HomeModule::class]
+)
 interface HomeComponent {
 
     fun inject(homeFragment: HomeFragment)
@@ -15,13 +20,13 @@ interface HomeComponent {
     @Component.Factory
     interface Factory {
 
-        fun create(applicationDeps: ApplicationDeps): HomeComponent
+        fun create(applicationDeps: ApplicationDeps, navigationDeps: NavigationDeps): HomeComponent
     }
 }
 
 fun HomeFragment.inject() {
     getComponent {
         DaggerHomeComponent.factory()
-            .create(requireContext().applicationDeps())
+            .create(requireContext().applicationDeps(), requireActivity().navigationDeps())
     }.inject(this)
 }
