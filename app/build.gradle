@@ -26,12 +26,13 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     implementation project(":appcomponent")
     implementation project(":appdeps")
+    implementation project(":details")
+    implementation project(":di")
     implementation project(":githubapi")
     implementation project(":home")
+    implementation project(":navigation")
     implementation project(":repository")
 
     implementation deps.androidx.fragment
