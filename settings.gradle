@@ -1,3 +1,4 @@
+include ':poweradapter'
 include ':navigation'
 rootProject.name='GitHub Browser'
 include ':app'
