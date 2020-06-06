@@ -4,6 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.common.truth.Truth.assertThat
 import com.sample.githubbrowser.githubapi.model.RepoApiModel
 import com.sample.githubbrowser.githubapi.model.UserApiModel
+import com.sample.githubbrowser.home.list.NumberItem
 import com.sample.githubbrowser.home.list.RepoItem
 import com.sample.githubbrowser.navigation.DetailsScreen
 import com.sample.githubbrowser.repository.AppRepository
@@ -53,6 +54,7 @@ class HomeViewModelTest {
         assertThat(viewStateValues.size).isEqualTo(1)
         val expectedState = HomeViewStateLoaded(
             repos = listOf(
+                NumberItem(number = 1),
                 RepoItem(
                     ownerName = fakeRepoApiModel.owner.login,
                     name = fakeRepoApiModel.name,

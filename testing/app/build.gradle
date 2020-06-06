@@ -28,7 +28,7 @@ android {
 dependencies {
     api project(":appcomponent")
     implementation project(":appdeps")
-    implementation project(":navigation")
+    api project(":navigation")
 
     implementation deps.dagger.core
     kapt deps.dagger.compiler

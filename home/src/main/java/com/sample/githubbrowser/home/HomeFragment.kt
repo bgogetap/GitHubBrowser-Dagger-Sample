@@ -12,13 +12,19 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sample.githubbrowser.di.viewmodel.AppViewModelFactory
 import com.sample.githubbrowser.home.databinding.ScreenHomeBinding
-import com.sample.githubbrowser.home.list.HomeRepoAdapter
+import com.sample.githubbrowser.poweradapter.ItemRenderer
+import com.sample.githubbrowser.poweradapter.PowerAdapter
+import com.sample.githubbrowser.poweradapter.RecyclerItem
 import javax.inject.Inject
+import javax.inject.Provider
 
 class HomeFragment : Fragment() {
 
     @Inject
     lateinit var appViewModelFactory: AppViewModelFactory
+
+    @Inject
+    lateinit var itemRenderers: Map<Class<out RecyclerItem>, @JvmSuppressWildcards Provider<ItemRenderer<out RecyclerItem>>>
 
     private val homeViewModel: HomeViewModel by lazy {
         ViewModelProvider(this, appViewModelFactory)[HomeViewModel::class.java]
@@ -36,7 +42,7 @@ class HomeFragment : Fragment() {
     ): View? {
         val binding = ScreenHomeBinding.inflate(inflater, container, false)
         binding.repoList.apply {
-            adapter = HomeRepoAdapter(homeViewModel::onRepoSelected)
+            adapter = PowerAdapter(itemRenderers)
             layoutManager = LinearLayoutManager(context)
             addItemDecoration(
                 DividerItemDecoration(
@@ -67,7 +73,7 @@ class HomeFragment : Fragment() {
         binding.loadingIndicator.visibility = View.GONE
 
         binding.repoList.visibility = View.VISIBLE
-        (binding.repoList.adapter as HomeRepoAdapter).setRepoItems(state.repos)
+        (binding.repoList.adapter as PowerAdapter).setData(state.repos)
     }
 
     private fun handleErrorState(state: HomeViewStateError, binding: ScreenHomeBinding) {
