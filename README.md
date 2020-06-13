@@ -1,3 +1,3 @@
 # GitHubBrowser-Dagger-Sample
 
-Project used to demonstrate easy to walk-through Dagger dependency chain in a multi-module project.
+Project used to demonstrate an easy to walk-through Dagger dependency chain in a multi-module project.
