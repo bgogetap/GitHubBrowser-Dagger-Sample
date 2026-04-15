@@ -3,7 +3,7 @@ package com.sample.githubbrowser.details.list
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import coil.api.load
+import coil.load
 import com.sample.githubbrowser.details.databinding.ContributorItemBinding
 
 class ContributorsAdapter : RecyclerView.Adapter<ContributorsAdapter.ContributorViewHolder>() {
